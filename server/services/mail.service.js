@@ -24,7 +24,7 @@ const signupMail = async (to, name) => {
     const message = {
       from: "pernstore.shop@gmail.com",
       to,
-      subject: "Welcome to PERN Store",
+      subject: "Welcome to Minha Loja",
       html: html(name),
     };
 

@@ -20,14 +20,14 @@ const PaymentForm = ({ next }) => {
   return (
     <div className="w-full">
       <h1 className="text-3xl text-center mb-4 font-semibold">
-        Address Details
+      Detalhes do Endereço
       </h1>
       <form
         className="border p-4 border-black-4 w-full md:w-1/2 mx-auto"
         onSubmit={handleSubmit((data) => next(data))}
       >
         <Label className="block text-grey-darker text-sm font-bold mb-4">
-          <span>Fullname</span>
+          <span>Nome completo</span>
           <Input
             disabled
             type="text"
@@ -53,7 +53,7 @@ const PaymentForm = ({ next }) => {
           )}
         </Label>
         <Label className="block text-grey-darker text-sm font-bold mb-4">
-          <span>Address</span>
+          <span>Endereço</span>
           <Input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mt-2 px-2 py-2 border focus:outline-none"
             type="text"
@@ -65,7 +65,7 @@ const PaymentForm = ({ next }) => {
           )}
         </Label>
         <Label className="block text-grey-darker text-sm font-bold mb-4">
-          <span>Country</span>
+          <span>País</span>
           <Input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mt-2 px-2 py-2 border focus:outline-none"
             type="text"
@@ -77,7 +77,7 @@ const PaymentForm = ({ next }) => {
           )}
         </Label>
         <Label className="block text-grey-darker text-sm font-bold mb-4">
-          <span>State/Region</span>
+          <span>Estado/Região</span>
           <Input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mt-2 px-2 py-2 border focus:outline-none"
             type="text"
@@ -89,7 +89,7 @@ const PaymentForm = ({ next }) => {
           )}
         </Label>
         <Label className="block text-grey-darker text-sm font-bold mb-4">
-          <span>City</span>
+          <span>Cidade</span>
           <Input
             className="shadow appearance-none border rounded w-full text-grey-darker mt-2 px-2 py-2 border focus:outline-none"
             type="text"
@@ -102,10 +102,10 @@ const PaymentForm = ({ next }) => {
         </Label>
         <div className="flex justify-between">
           <Button tag={Link} to="/cart" layout="outline" size="small">
-            Back to cart
+          Voltar ao carrinho
           </Button>
           <Button type="submit" size="small">
-            Proceed
+          Continuar
           </Button>
         </div>
       </form>

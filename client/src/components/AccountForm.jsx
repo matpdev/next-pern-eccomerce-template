@@ -38,7 +38,7 @@ const AccountForm = ({ setShowSettings, userData }) => {
       <div className="w-full md:w-1/2 shadow-md overflow-hidden sm:rounded-lg">
         <div className="px-4 py-5 sm:px-6">
           <h3 className="text-lg leading-6 font-medium text-gray-900 capitalize">
-            Account settings
+            Configurações da Conta
           </h3>
         </div>
         <form
@@ -47,7 +47,7 @@ const AccountForm = ({ setShowSettings, userData }) => {
         >
           <Label className="bg-gray-50 px-4 py-5">
             <span className="text-sm font-medium text-gray-500 w-1/4">
-              Full name
+              Nome Completo
             </span>
             <Input
               name="fullname"
@@ -56,7 +56,7 @@ const AccountForm = ({ setShowSettings, userData }) => {
             />
           </Label>
           <Label className="bg-white px-4 py-5 ">
-            <span className="text-sm font-medium text-gray-500">Username</span>
+            <span className="text-sm font-medium text-gray-500">Nome do Usuário</span>
             <Input
               name="username"
               ref={register}

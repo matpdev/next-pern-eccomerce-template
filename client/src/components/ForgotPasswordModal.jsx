@@ -51,11 +51,11 @@ const ForgotPasswordModal = () => {
           onClick={() => setIsOpen(!isOpen)}
           className="mb-1 text-sm text-purple-700 cursor-pointer"
         >
-          Forgot password?
+          Esqueceu a senha?
         </span>
         <Modal isOpen={isOpen} onClose={toggleModal}>
           <form onSubmit={handleSubmit(onSubmitReset)}>
-            <ModalHeader>Forgot Password</ModalHeader>
+            <ModalHeader>Esqueceu a senha</ModalHeader>
             <ModalBody>
               <Label>
                 <span className="font-semibold">Email</span>
@@ -66,11 +66,11 @@ const ForgotPasswordModal = () => {
                   type="email"
                   inputMode="email"
                   ref={register({
-                    required: "Email required",
+                    required: "Email obrigatório",
                     pattern: {
                       // eslint-disable-next-line no-useless-escape
                       value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
-                      message: "Email not valid",
+                      message: "E-mail inválido",
                     },
                   })}
                 />

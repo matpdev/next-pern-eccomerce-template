@@ -30,7 +30,7 @@ const Register = () => {
       })
         .then(({ data }) => {
           setError("");
-          toast.success("Account created successfully.");
+          toast.success("Conta Criada com Sucesso");
           setTimeout(() => {
             setUserState(data);
             setIsLoading(!isLoading);
@@ -55,10 +55,10 @@ const Register = () => {
           className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col w-full md:w-1/2 mx-2"
           onSubmit={handleSubmit(onSubmit)}
         >
-          <h1 className="text-center text-4xl">Create Account</h1>
+          <h1 className="text-center text-4xl">Criar Conta</h1>
           <div className="mt-4">
             <Label className="block text-grey-darker text-sm font-bold mb-2">
-              <span>Username</span>
+              <span>Nome do Usuário</span>
             </Label>
             <Input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
@@ -67,9 +67,9 @@ const Register = () => {
               ref={register({
                 minLength: {
                   value: 4,
-                  message: "Username must be greater than 3 characters",
+                  message: "O nome tem que ter mais de 3 letras",
                 },
-                required: "Username is required",
+                required: "Nome de usuário necessário",
               })}
             />
           </div>
@@ -85,17 +85,17 @@ const Register = () => {
           )}
           <div className="mt-4">
             <Label className="block text-grey-darker text-sm font-bold mb-2">
-              <span>Fullname</span>
+              <span>Nome Completo</span>
             </Label>
             <Input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
               type="text"
               name="name"
               ref={register({
-                required: "Name cannot be empty",
+                required: "Nome não pode ser vazío",
                 minLength: {
                   value: 6,
-                  message: "Name must be greater than 5 characters",
+                  message: "Nome Completo tem que ser maior que 5 letras",
                 },
               })}
             />
@@ -119,11 +119,11 @@ const Register = () => {
               type="email"
               name="email"
               ref={register({
-                required: "Email required",
+                required: "Email Necessário",
                 pattern: {
                   // eslint-disable-next-line no-useless-escape
                   value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
-                  message: "Email not valid",
+                  message: "Email não válido",
                 },
               })}
             />
@@ -147,10 +147,10 @@ const Register = () => {
               type="password"
               name="password"
               ref={register({
-                required: "Password required",
+                required: "Senha Necessária",
                 minLength: {
                   value: 6,
-                  message: "Password must be greater than 5 characters",
+                  message: "Senha tem que ser maior que 5 caracteres",
                 },
               })}
             />
@@ -167,7 +167,7 @@ const Register = () => {
           )}
           <div className="mt-4">
             <Label className="block text-grey-darker text-sm font-bold mb-2">
-              <span>Confirm Password</span>
+              <span>Confirmar Senha</span>
             </Label>
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
@@ -175,7 +175,7 @@ const Register = () => {
               name="password2"
               ref={register({
                 validate: (value) =>
-                  value === password.current || "Passwords do not match",
+                  value === password.current || "Senhas não são iguais",
               })}
             />
             {errors.password2 && (
@@ -188,7 +188,7 @@ const Register = () => {
             {isLoading ? (
               <PulseLoader color={"#0a138b"} size={10} loading={isLoading} />
             ) : (
-              "Create Account"
+              "Criar uma Conta"
             )}
           </Button>
           {error && (
@@ -197,9 +197,9 @@ const Register = () => {
             </HelperText>
           )}
           <p className="text-sm mt-4">
-            Have an account?{" "}
+            Já tem uma conta?{" "}
             <Link to="/login" className="font-bold">
-              Login
+              Logar
             </Link>
           </p>
         </form>

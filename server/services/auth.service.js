@@ -105,6 +105,7 @@ class AuthService {
         fullname,
         username,
       } = user;
+
       const isCorrectPassword = await bcrypt.compare(password, dbPassword);
 
       if (!isCorrectPassword) {

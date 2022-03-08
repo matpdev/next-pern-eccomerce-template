@@ -36,7 +36,7 @@ const Product = ({ product }) => {
             onClick={(e) => addToCart(e)}
           >
             {" "}
-            Add to cart
+            Adicionar ao Carrinho
           </Button>
         </CardBody>
       </div>

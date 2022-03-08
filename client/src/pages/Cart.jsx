@@ -23,12 +23,12 @@ const Cart = () => {
     return (
       <Layout title="Cart" loading={isLoading}>
         <h1 className="my-10 text-center text-4xl font-semibold">
-          Shopping Cart
+          Carrinho de Compras
         </h1>
         <div className="h-full flex flex-col justify-center items-center">
           <ShoppingCart size={150} />
-          <p>Cart is empty</p>
-            <Button tag={Link} to="/">Continue shopping</Button>
+          <p>Carrinho vazío</p>
+            <Button tag={Link} to="/">Continue a Comprar</Button>
         </div>
       </Layout>
     );
@@ -37,17 +37,17 @@ const Cart = () => {
   return (
     <Layout loading={isLoading || cartData === undefined}>
       <h1 className="my-10 text-center text-4xl font-semibold">
-        Shopping Cart
+      Carrinho de Compras
       </h1>
       <TableContainer>
         <Table>
           <TableHeader>
             <TableRow>
-              <TableCell>Product</TableCell>
-              <TableCell>Amount</TableCell>
-              <TableCell>Quantity</TableCell>
+              <TableCell>Produto</TableCell>
+              <TableCell>Valor</TableCell>
+              <TableCell>Quantidade</TableCell>
               <TableCell>Total</TableCell>
-              <TableCell>Remove</TableCell>
+              <TableCell>Remover</TableCell>
             </TableRow>
           </TableHeader>
           <TableBody>

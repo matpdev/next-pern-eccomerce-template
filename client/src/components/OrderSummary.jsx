@@ -6,7 +6,7 @@ const OrderSummary = () => {
   const { cartData, cartSubtotal } = useCart();
   return (
     <div>
-      <h1 className="text-xl font-medium">Order Summary</h1>
+      <h1 className="text-xl font-medium">Resumo do Pedido:</h1>
       {cartData?.items.map((item) => (
         <div key={item.product_id} className="flex border-b-2 py-2 space-x-2">
           <img
@@ -21,7 +21,7 @@ const OrderSummary = () => {
             <span className="text-xl font-medium">
               {formatCurrency(item.price)}
             </span>
-            <span className="">Quantity: {item.quantity}</span>
+            <span className="">Quantidade: {item.quantity}</span>
           </div>
         </div>
       ))}

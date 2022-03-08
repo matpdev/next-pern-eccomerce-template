@@ -47,11 +47,11 @@ const ResetPassword = () => {
       });
   };
   return (
-    <Layout title="Reset Password">
+    <Layout title="Resetar a Senha">
       {msg.showForm ? (
         <div className="pt-12">
           <header className="max-w-lg mx-auto mb-4">
-            <h1 className="text-4xl font-bold text-center">Reset Password</h1>
+            <h1 className="text-4xl font-bold text-center">Confirmar a Senha</h1>
           </header>
           <div className="mx-auto max-w-lg shadow-2xl p-8 md:p-10">
             <form
@@ -60,7 +60,7 @@ const ResetPassword = () => {
             >
               <Label className="mb-4">
                 <span className="block text-gray-700 text-sm font-bold mb-2">
-                  Password
+                  Senha
                 </span>
                 <Input
                   className="rounded w-full text-gray-700 focus:outline-none border px-2 py-2 focus:border-purple-600 transition duration-500"
@@ -68,10 +68,10 @@ const ResetPassword = () => {
                   inputMode="password"
                   name="password"
                   ref={register({
-                    required: "Password cannot be empty",
+                    required: "Senha não pode ser vazío",
                     minLength: {
                       value: 6,
-                      message: "Password must be greater than 5 characters",
+                      message: "Senha tem que ser maior que 5 caracteres",
                     },
                   })}
                 />
@@ -88,7 +88,7 @@ const ResetPassword = () => {
               </Label>
               <Label className="mb-4">
                 <span className="block text-gray-700 text-sm font-bold mb-2">
-                  Confirm Password
+                  Confirmar Senha
                 </span>
                 <Input
                   className="rounded w-full text-gray-700 focus:outline-none border px-2 py-2 focus:border-purple-600 transition duration-500"
@@ -115,7 +115,7 @@ const ResetPassword = () => {
                 {isResetting ? (
                   <PulseLoader size={10} color={"#0a138b"} />
                 ) : (
-                  "Reset Password"
+                  "Resetar a Senha"
                 )}
               </Button>
             </form>

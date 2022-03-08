@@ -4,6 +4,7 @@ import Layout from "layout/Layout";
 import Cart from "pages/Cart";
 import Login from "pages/Login";
 import Register from "pages/Register";
+import Admin from "pages/admin/Main"
 import { lazy, Suspense } from "react";
 import { Toaster } from "react-hot-toast";
 import { Router, Switch, Route } from "react-router-dom";
@@ -40,6 +41,9 @@ function App() {
             <Route path="/login">
               <Login />
             </Route>
+            <ProtectedRoute exact path="/admin">
+              <Admin />
+            </ProtectedRoute>
             <Route exact path={["/", "/products"]}>
               <Product />
             </Route>

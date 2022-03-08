@@ -10,11 +10,13 @@ const UserProvider = ({ children }) => {
   const [authData, setAuthData] = useState({
     token: "",
   });
+  const [isAdmin, setIsAdmin] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     if (isLoggedIn) {
       authService.getCurrentUser().then((res) => setUserData(res?.data));
+      authService.isAdmin().then((res) => res.data).then((req) => setIsAdmin(req.roles))
     }
   }, [isLoggedIn]);
 
@@ -75,6 +77,7 @@ const UserProvider = ({ children }) => {
         authData,
         setAuthData,
         updateUserData,
+        isAdmin
       }}
     >
       <WithAxios>{children}</WithAxios>

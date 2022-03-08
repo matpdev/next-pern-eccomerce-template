@@ -28,7 +28,7 @@ module.exports = {
     responses: {
       // response code
       200: {
-        description: "Login successful", // response desc
+        description: "Login Concluído!", // response desc
         headers: {
           "set-cookie": {
             description: "`refreshToken`",

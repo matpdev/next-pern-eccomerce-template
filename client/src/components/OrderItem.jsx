@@ -7,7 +7,7 @@ const OrderItem = ({order}) => {
   return (
     <>
       <TableCell>#{order.order_id}</TableCell>
-      <TableCell>{order.total || "Not available"}</TableCell>
+      <TableCell>{order.total || "Não disponível"}</TableCell>
       <TableCell><Badge type="success">{order.status}</Badge> </TableCell>
       <TableCell>{formatCurrency(order.amount)}</TableCell>
       <TableCell>{format(parseISO(order.date),'dd/MM/yy')}</TableCell>

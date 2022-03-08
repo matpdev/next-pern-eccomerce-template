@@ -37,24 +37,24 @@ const Orders = () => {
   if (orders?.length === 0) {
     return (
       <Layout loading={orders === null}>
-        <h1 className="my-10 text-center text-4xl font-semibold">Orders</h1>
-        <p>You are yet to place an order</p>
+        <h1 className="my-10 text-center text-4xl font-semibold">Pedidos</h1>
+        <p>Você ainda não fez um pedido</p>
       </Layout>
     );
   }
 
   return (
     <Layout title="Orders" loading={orders === null}>
-      <h1 className="my-10 text-center text-4xl font-semibold">Orders</h1>
+      <h1 className="my-10 text-center text-4xl font-semibold">Pedidos</h1>
       <TableContainer>
         <Table>
           <TableHeader>
             <TableRow>
               <TableCell>ID</TableCell>
-              <TableCell>No. of items</TableCell>
+              <TableCell>N° de Items</TableCell>
               <TableCell>Status</TableCell>
-              <TableCell>Amount</TableCell>
-              <TableCell>Date</TableCell>
+              <TableCell>Valor</TableCell>
+              <TableCell>Data</TableCell>
             </TableRow>
           </TableHeader>
           <TableBody>

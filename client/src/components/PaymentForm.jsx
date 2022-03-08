@@ -13,7 +13,6 @@ import { useHistory } from "react-router";
 import PulseLoader from "react-spinners/PulseLoader";
 import OrderService from "services/order.service";
 import OrderSummary from "./OrderSummary";
-import PaystackBtn from "./PaystackBtn";
 
 const PaymentForm = ({ previousStep, addressData, nextStep }) => {
   const { cartSubtotal, cartTotal, cartData, setCartData } = useCart();
@@ -47,7 +46,7 @@ const PaymentForm = ({ previousStep, addressData, nextStep }) => {
             city,
             line1: address,
             state,
-            country: "NG", // TODO: change later
+            country: "BR", // TODO: change later
           },
         },
       });
@@ -81,7 +80,7 @@ const PaymentForm = ({ previousStep, addressData, nextStep }) => {
     <div className="w-full md:w-1/2">
       <h1 className="text-3xl font-semibold text-center mb-2">Checkout</h1>
       <OrderSummary />
-      <h1 className="font-medium text-2xl">Pay with Stripe</h1>
+      <h1 className="font-medium text-2xl">Faça o Pagamento</h1>
       <Elements stripe={stripePromise}>
         <ElementsConsumer>
           {({ stripe, elements }) => (
@@ -90,7 +89,7 @@ const PaymentForm = ({ previousStep, addressData, nextStep }) => {
               {error && <HelperText valid={false}>{error.message}</HelperText>}
               <div className="flex justify-between py-4">
                 <Button onClick={previousStep} layout="outline" size="small">
-                  Back
+                  Voltar
                 </Button>
                 <Button
                   disabled={!stripe || isProcessing}
@@ -100,7 +99,7 @@ const PaymentForm = ({ previousStep, addressData, nextStep }) => {
                   {isProcessing || !stripe ? (
                     <PulseLoader size={10} color={"#0a138b"} />
                   ) : (
-                    `Pay ${formatCurrency(cartSubtotal)}`
+                    `Pagar ${formatCurrency(cartSubtotal)}`
                   )}
                 </Button>
               </div>
@@ -108,10 +107,6 @@ const PaymentForm = ({ previousStep, addressData, nextStep }) => {
           )}
         </ElementsConsumer>
       </Elements>
-      <PaystackBtn
-        isProcessing={isProcessing}
-        setIsProcessing={setIsProcessing}
-      />
     </div>
   );
 };

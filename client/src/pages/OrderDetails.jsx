@@ -17,16 +17,16 @@ const OrderDetails = () => {
   return (
     <Layout>
       <div className="my-4">
-        <h1 className="font-bold text-2xl">Order Details</h1>
-        <p>Order no: #{state.order.order_id}</p>
+        <h1 className="font-bold text-2xl">Detalhes do Pedido</h1>
+        <p>Número do Pedido: #{state.order.order_id}</p>
         <p>{`${state.order.total || "Not available"} items`}</p>
         <p>
           Status: <Badge type="success">{state.order.status}</Badge>
         </p>
-        <p>Total Amount: {formatCurrency(state.order.amount)}</p>
-        <p>Placed on: {format(parseISO(state.order.date), "d MMM, yyyy")}</p>
+        <p>Valor total: {formatCurrency(state.order.amount)}</p>
+        <p>Pedido em: {format(parseISO(state.order.date), "d MMM, yyyy")}</p>
         <div className="border-t-2">
-          <h1 className="font-bold text-xl">Items in your order</h1>
+          <h1 className="font-bold text-xl">Items do seu pedido</h1>
           {items?.map((item) => (
             <Card
               key={item.product_id}
@@ -45,7 +45,7 @@ const OrderDetails = () => {
                 <p className="text-gray-600 dark:text-gray-400">
                   {item.description}
                 </p>
-                <p className="mt-2">Quantity: {item.quantity}</p>
+                <p className="mt-2">Quantidade: {item.quantity}</p>
               </CardBody>
             </Card>
           ))}

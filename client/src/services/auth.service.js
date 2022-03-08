@@ -55,6 +55,10 @@ class AuthService {
   getCurrentUser() {
     return API.get("/users/profile");
   }
+
+  isAdmin() {
+    return API.get("/users/profile");
+  }
 }
 
 export default new AuthService();

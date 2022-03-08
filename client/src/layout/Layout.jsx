@@ -8,7 +8,7 @@ const Layout = ({ children, title, loading }) => {
     <>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>{title || "Home"} | PERN Store </title>
+        <title>{title || "Home"} | Minha Loja </title>
         <meta
           name="description"
           content="Ecommerce store built with React, Node, Express and Postgres"
@@ -20,13 +20,13 @@ const Layout = ({ children, title, loading }) => {
         <link rel="canonical" href="https://pern-store.netlify.app/" />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="PERN Store" />
+        <meta property="og:title" content="Minha Loja" />
         <meta
           property="og:description"
           content="Ecommerce store built with React, Node, Express and Postgres"
         />
         <meta property="og:url" content="https://pern-store.netlify.app/" />
-        <meta property="og:site_name" content="PERN Store" />
+        <meta property="og:site_name" content="Minha Loja" />
         <meta property="og:image" content="android-chrome-512x512.png" />
         <meta
           property="og:image:secure_url"
@@ -39,7 +39,7 @@ const Layout = ({ children, title, loading }) => {
           name="twitter:description"
           content="Ecommerce store built with React, Node, Express and Postgres"
         />
-        <meta name="twitter:title" content="PERN Store" />
+        <meta name="twitter:title" content="Minha Loja" />
         <meta name="twitter:image" content="android-chrome-512x512.png" />
         <style type="text/css">{`
         html,body{
@@ -61,15 +61,7 @@ const Layout = ({ children, title, loading }) => {
 
         <footer className="mt-auto flex justify-center py-2">
           <p className="text-sm text-gray-600 sm:ml-4 sm:pl-4 sm:py-2 sm:mt-0 mt-4">
-            © 2021 PERN Store —
-            <a
-              href="https://github.com/dhatguy"
-              className="text-gray-500 ml-1"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              @dhatGuy
-            </a>
+            © 2022 Minha Loja
           </p>
         </footer>
       </div>

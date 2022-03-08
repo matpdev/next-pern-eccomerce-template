@@ -70,7 +70,7 @@ const ProductDetails = () => {
                   className="ml-auto border-0 focus:outline-none rounded"
                   onClick={(e) => addToCart(e)}
                 >
-                  Add to cart
+                  Adicionar ao Carrinho
                 </Button>
               </div>
             </div>

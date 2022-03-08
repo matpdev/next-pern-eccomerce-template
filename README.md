@@ -1,4 +1,4 @@
-# PERN STORE
+# Minha Loja
 
 A small full-stack e-commerce project built with Postgres, Express, React and Node.
 

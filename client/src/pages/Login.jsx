@@ -21,7 +21,7 @@ const Login = () => {
   const handleGoogleLogin = async (googleData) => {
     try {
       const data = await authService.googleLogin(googleData.tokenId);
-      toast.success("Login successful 🔓");
+      toast.success("Login Concluído! 🔓");
       setTimeout(() => {
         setUserState(data);
         setRedirectToReferrer(true);
@@ -39,7 +39,7 @@ const Login = () => {
       setError("");
       setIsLoading(true);
       const data = await authService.login(email, password);
-      toast.success("Login successful 🔓");
+      toast.success("Login Concluído! 🔓");
 
       setTimeout(() => {
         setUserState(data);
@@ -66,7 +66,7 @@ const Login = () => {
           className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col w-full md:w-1/2"
           onSubmit={handleSubmit(onSubmit)}
         >
-          <h1 className="text-center text-4xl my-4">Continue Shopping</h1>
+          <h1 className="text-center text-4xl my-4">Continue a Comprar</h1>
           <div className="">
             <Label className="block text-grey-darker text-sm font-bold mb-2">
               <span>Email</span>
@@ -80,33 +80,34 @@ const Login = () => {
                 // eslint-disable-next-line no-useless-escape
                 pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
               })}
-              placeholder="Enter a valid email"
+              placeholder="Coloque um Email Válido"
             />
           </div>
           {errors.email && errors.email.type === "required" && (
             <HelperText className="mt-1 italic" valid={false}>
-              Email required
+              Email Necessário
             </HelperText>
           )}
           {errors.email && errors.email.type === "pattern" && (
             <HelperText className="mt-1 italic" valid={false}>
-              Invalid email
+              Email Inválido
             </HelperText>
           )}
           <div className="mt-4">
             <Label className="block text-grey-darker text-sm font-bold mb-2">
-              <span>Password</span>
+              <span>Senha</span>
             </Label>
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
               type="password"
               name="password"
+              placeholder="Coloque sua Senha"
               ref={register({ required: true })}
             />
           </div>
           {errors.password && errors.password.type === "required" && (
             <HelperText className="mt-1 italic" valid={false}>
-              Password required
+              Senha Necessária
             </HelperText>
           )}
           {error && (
@@ -127,15 +128,15 @@ const Login = () => {
           <GoogleLogin
             className="my-4 flex justify-center"
             clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-            buttonText="Log in with Google"
+            buttonText="Logar com o Google"
             onSuccess={handleGoogleLogin}
             onFailure={handleGoogleLogin}
             cookiePolicy={"single_host_origin"}
           />
           <p className="text-sm mt-4">
-            Don't have an account?{" "}
+            Não tem uma conta?{" "}
             <Link to="/signup" className="font-bold">
-              Sign Up
+            {" "} Se inscreva
             </Link>
           </p>
         </form>

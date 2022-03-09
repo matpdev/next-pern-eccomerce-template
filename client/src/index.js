@@ -1,5 +1,6 @@
 import { Windmill } from "@windmill/react-ui";
 import { CartProvider } from "context/CartContext";
+import { FavProvider } from "context/FavContext";
 import { OrderProvider } from "context/OrderContext";
 import { ProductProvider } from "context/ProductContext";
 import { ReviewProvider } from "context/ReviewContext";
@@ -15,17 +16,19 @@ ReactDOM.render(
   <>
     <HelmetProvider>
       <Windmill>
-            <UserProvider>
-              <ProductProvider>
-                <ReviewProvider>
-                  <CartProvider>
-                    <OrderProvider>
-                      <App />
-                    </OrderProvider>
-                  </CartProvider>
-                </ReviewProvider>
-              </ProductProvider>
-            </UserProvider>
+        <UserProvider>
+          <ProductProvider>
+            <ReviewProvider>
+              <CartProvider>
+                <OrderProvider>
+                  <FavProvider>
+                    <App />
+                  </FavProvider>
+                </OrderProvider>
+              </CartProvider>
+            </ReviewProvider>
+          </ProductProvider>
+        </UserProvider>
       </Windmill>
     </HelmetProvider>
   </>,

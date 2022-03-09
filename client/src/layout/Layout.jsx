@@ -1,5 +1,6 @@
 import Nav from "components/Nav";
 import Spinner from "components/Spinner";
+import WelcomeBanner from "../components/WelcomeBanner";
 import React from "react";
 import { Helmet } from "react-helmet-async";
 
@@ -55,7 +56,10 @@ const Layout = ({ children, title, loading }) => {
           </>
         ) : (
           <div className="text-gray-700 mt-16 mx-auto px-2 lg:px-56 flex-grow h-full w-full">
-            <main className="h-full">{children}</main>
+            <main className="h-full">
+            <WelcomeBanner/>
+              {children}
+              </main>
           </div>
         )}
 

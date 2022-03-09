@@ -133,6 +133,43 @@ module.exports = {
           },
         },
       },
+      FavItem: {
+        type: "object", // data type
+        properties: {
+          product_id: {
+            type: "number", // data-type
+            description: "Product identification number", // desc
+            example: "23", // example of an id
+          },
+          name: {
+            type: "string", // data-type
+            description: "Product name", // desc
+          },
+          price: {
+            type: "integer", // data-type
+            description: "Product price", // desc
+            example: 456.79
+          },
+          description: {
+            type: "string", // data-type
+            description: "Product description", // desc
+          },
+          image_url: {
+            type: "string", // data-type
+            description: "Product image url", // desc
+          },
+          subtotal: {
+            type: "integer", // data type
+            description: "Product total price", // desc
+            example: 3009.10
+          },
+          quantity: {
+            type: "number", // data type
+            description: "Total number in cart", // desc
+            example: 5
+          },
+        },
+      },
       // login input model
       LoginInput: {
         type: "object", // data type

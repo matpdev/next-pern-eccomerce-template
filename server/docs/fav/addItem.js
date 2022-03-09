@@ -1,8 +1,8 @@
 module.exports = {
   // operation's method
   post: {
-    tags: ["Cart"], // operation's tag
-    description: "Add an item to cart", // short desc
+    tags: ["Fav"], // operation's tag
+    description: "Add an item to fav", // short desc
     summary: "Add an item",
     operationId: "addItem", // unique operation id
     parameters: [], // expected params
@@ -41,7 +41,7 @@ module.exports = {
             schema: {
               type: "array",
               items: {
-                $ref: "#/components/schemas/CartItem",
+                $ref: "#/components/schemas/FavItem",
               },
             },
           },

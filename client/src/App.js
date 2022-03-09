@@ -2,6 +2,7 @@ import Spinner from "components/Spinner";
 import history from "helpers/history";
 import Layout from "layout/Layout";
 import Cart from "pages/Cart";
+import Fav from 'pages/Fav'
 import Login from "pages/Login";
 import Register from "pages/Register";
 import Admin from "pages/admin/Main"
@@ -64,6 +65,9 @@ function App() {
             </ProtectedRoute>
             <Route path="/cart">
               <Cart />
+            </Route>
+            <Route path="/fav">
+              <Fav />
             </Route>
             <Route path="/reset-password">
               <ResetPassword />

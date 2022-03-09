@@ -1,6 +1,12 @@
-import React from 'react';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+
+import { useUser } from "../context/UserContext";
+import { getSaudacao } from '../helpers/getHour'
 
 function WelcomeBanner() {
+  const { userData} = useUser();
+
   return (
     <div className="relative bg-indigo-200 p-4 sm:p-6 rounded-sm overflow-hidden mb-8">
 
@@ -48,8 +54,10 @@ function WelcomeBanner() {
 
       {/* Content */}
       <div className="relative">
-        <h1 className="text-2xl md:text-3xl text-slate-800 font-bold mb-1">Boa tarde, Nome do User 👋</h1>
-        <p>Aqui está o que está acontecendo com seus projetos hoje:</p>
+        <h1 className="text-2xl md:text-3xl text-slate-800 font-bold mb-1">
+          {userData === null ? ` ${getSaudacao()} 👋 `: `${getSaudacao()}, ${userData?.fullname?.split(" ").join(" ")} 👋` }
+          </h1>
+        <p>Dia de comprar BARATO é aqui!</p>
       </div>
 
     </div>

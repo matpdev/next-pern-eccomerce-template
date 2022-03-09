@@ -1,10 +1,10 @@
 module.exports = {
   // method of operation
   get: {
-    tags: ["Cart"], // operation's tag.
-    description: "Get cart", // operation's desc.
-    summary: "Get cart items",
-    operationId: "getCart", // unique operation id.
+    tags: ["Fav"], // operation's tag.
+    description: "Get fav", // operation's desc.
+    summary: "Get fav items",
+    operationId: "getFav", // unique operation id.
     parameters: [], // expected params.
     security: [
       {
@@ -15,14 +15,14 @@ module.exports = {
     responses: {
       // response code
       200: {
-        description: "Cart obtained", // response desc.
+        description: "Fav obtained", // response desc.
         content: {
           // content-type
           "application/json": {
             schema: {
               type: "array",
               items: {
-                $ref: "#/components/schemas/CartItem",
+                $ref: "#/components/schemas/FavItem",
               },
             },
           },

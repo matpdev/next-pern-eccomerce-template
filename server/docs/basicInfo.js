@@ -5,9 +5,9 @@ module.exports = {
     description: "A REST E-commerce API made with Express and Postgresql.", //  desc.
     version: "1.0.0", // version number
     contact: {
-      name: "Joseph Odunsi", // your name
-      email: "odunsiolakunbi@gmail.com", // your email
-      url: "https://github.com/dhatguy", // your website
+      name: "Matheus Alves", // your name
+      email: "matheus2ep@gmail.com", // your email
+      url: "https://github.com/matpdev", // your website
     },
   },
 };

@@ -1,11 +1,11 @@
 module.exports = {
-  // operation's method
-  post: {
-    tags: ["Cart"], // operation's tag
-    description: "Add an item to cart", // short desc
-    summary: "Add an item",
-    operationId: "addItem", // unique operation id
-    parameters: [], // expected params
+  // operation's method.
+  delete: {
+    tags: ["Fav"], // operation's tag
+    description: "Removing a item", // short desc
+    summary: "Remove item from cart",
+    operationId: "removeItem", // unique operation id
+    parameters: [],
     security: [
       {
         JWT: [],
@@ -19,11 +19,10 @@ module.exports = {
           schema: {
             type: "object",
             properties: {
-              product_id: {
+              id: {
                 type: "number",
-              },
-              quantity: {
-                type: "number",
+                description: "ID of product to remove from fav",
+                example: 34,
               },
             },
           },
@@ -34,14 +33,14 @@ module.exports = {
     responses: {
       // response code
       200: {
-        description: "item added successfully", // response desc
+        description: "Item removed successfully", // response desc
         content: {
           // content-type
           "application/json": {
             schema: {
               type: "array",
               items: {
-                $ref: "#/components/schemas/CartItem",
+                $ref: "#/components/schemas/FavItem",
               },
             },
           },

@@ -36,6 +36,10 @@
       "description": "API for cart"
     },
     {
+      "name": "Fav",
+      "description": "API for fav"
+    },
+    {
       "name": "Reviews",
       "description": "API for reviews"
     }

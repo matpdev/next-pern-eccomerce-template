@@ -3,13 +3,13 @@ const addItem = require("./addItem");
 const removeItem = require("./removeItem");
 
 module.exports = {
-  "/cart": {
+  "/fav": {
     ...getFav,
   },
-  "/cart/add": {
+  "/fav/add": {
     ...addItem,
   },
-  "/cart/delete": {
+  "/fav/delete": {
     ...removeItem,
   },
 };

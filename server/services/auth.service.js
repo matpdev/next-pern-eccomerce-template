@@ -154,6 +154,7 @@ class AuthService {
             name,
           });
           await createCartDb(user.user_id);
+          await createFavDb(user.user_id);
           await mail.signupMail(user.email, user.fullname.split(" ")[0]);
         }
         const { user_id, cart_id, fav_id, roles, fullname, username } =
@@ -314,6 +315,7 @@ class AuthService {
         id: payload.id,
         roles: payload.roles,
         cart_id: payload.cart_id,
+        fav_id: payload.fav_id
       };
     } catch (error) {
       logger.error(error);

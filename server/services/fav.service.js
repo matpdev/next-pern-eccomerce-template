@@ -1,8 +1,10 @@
 const {
   createFavDb,
   getFavDb,
-  addItemDb,
-  deleteItemDb,
+  addItemFavDb,
+  deleteItemFavDb,
+  increaseItemQuantityDbFav,
+  decreaseItemQuantityDbFav,
   emptyFavDb,
 } = require("../db/fav.db");
 const { ErrorHandler } = require("../helpers/error");
@@ -15,7 +17,6 @@ class FavService {
       throw new ErrorHandler(error.statusCode, error.message);
     }
   };
-
   getFav = async (userId) => {
     try {
       return await getFavDb(userId);
@@ -26,7 +27,7 @@ class FavService {
 
   addItem = async (data) => {
     try {
-      return await addItemDb(data);
+      return await addItemFavDb(data);
     } catch (error) {
       throw new ErrorHandler(error.statusCode, error.message);
     }
@@ -34,7 +35,23 @@ class FavService {
 
   removeItem = async (data) => {
     try {
-      return await deleteItemDb(data);
+      return await deleteItemFavDb(data);
+    } catch (error) {
+      throw new ErrorHandler(error.statusCode, error.message);
+    }
+  };
+
+  increaseQuantity = async (data) => {
+    try {
+      return await increaseItemQuantityDbFav(data);
+    } catch (error) {
+      throw new ErrorHandler(error.statusCode, error.message);
+    }
+  };
+
+  decreaseQuantity = async (data) => {
+    try {
+      return await decreaseItemQuantityDbFav(data);
     } catch (error) {
       throw new ErrorHandler(error.statusCode, error.message);
     }

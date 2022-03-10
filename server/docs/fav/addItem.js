@@ -22,9 +22,6 @@ module.exports = {
               product_id: {
                 type: "number",
               },
-              quantity: {
-                type: "number",
-              },
             },
           },
         },

@@ -15,6 +15,23 @@ CREATE TABLE public.cart_item
     UNIQUE (cart_id, product_id)
 );
 
+CREATE TABLE public.fav
+(
+    id SERIAL NOT NULL,
+    user_id integer UNIQUE NOT NULL,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE public.fav_item
+(
+    id SERIAL NOT NULL,
+    fav_id integer NOT NULL,
+    product_id integer NOT NULL,
+    quantity integer NOT NULL CHECK (quantity > 0),
+    PRIMARY KEY (id),
+    UNIQUE (fav_id, product_id)
+);
+
 CREATE TABLE public.order_item
 (
     id SERIAL NOT NULL,
@@ -105,6 +122,26 @@ ALTER TABLE public.cart_item
 
 
 ALTER TABLE public.cart_item
+    ADD FOREIGN KEY (product_id)
+    REFERENCES public.products (product_id)
+    ON DELETE SET NULL
+    NOT VALID;
+
+ALTER TABLE public.fav
+    ADD FOREIGN KEY (user_id)
+    REFERENCES public.users (user_id)
+    ON DELETE SET NULL
+    NOT VALID;
+
+
+ALTER TABLE public.fav_item
+    ADD FOREIGN KEY (fav_id)
+    REFERENCES public.fav (id)
+    ON DELETE CASCADE
+    NOT VALID;
+
+
+ALTER TABLE public.fav_item
     ADD FOREIGN KEY (product_id)
     REFERENCES public.products (product_id)
     ON DELETE SET NULL

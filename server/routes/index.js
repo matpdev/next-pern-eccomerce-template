@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const cart = require("./cart");
+const fav = require("./fav");
 const order = require("./order");
 const product = require("./product");
 const users = require("./users");
@@ -13,6 +14,7 @@ router.use("/users", users);
 router.use("/products", product);
 router.use("/orders", order);
 router.use("/cart", cart);
+router.use("/fav", fav);
 router.use("/payment", payment);
 router.use("/docs", swaggerUi.serve, swaggerUi.setup(docs));
 

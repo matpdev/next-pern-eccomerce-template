@@ -41,6 +41,7 @@ class UserService {
       user.password = undefined;
       user.google_id = undefined;
       user.cart_id = undefined;
+      user.fav_id = undefined;
       return user;
     } catch (error) {
       throw new ErrorHandler(error.statusCode, error.message);

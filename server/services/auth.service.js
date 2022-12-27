@@ -64,7 +64,7 @@ class AuthService {
           id: newUser.user_id,
           roles: newUser.roles,
           cart_id,
-          fav_id
+          fav_id,
         });
 
         return {
@@ -117,12 +117,17 @@ class AuthService {
         throw new ErrorHandler(403, "Email or password incorrect.");
       }
 
-      const token = await this.signToken({ id: user_id, roles, cart_id, fav_id });
+      const token = await this.signToken({
+        id: user_id,
+        roles,
+        cart_id,
+        fav_id,
+      });
       const refreshToken = await this.signRefreshToken({
         id: user_id,
         roles,
         cart_id,
-        fav_id
+        fav_id,
       });
       return {
         token,
@@ -164,14 +169,14 @@ class AuthService {
           id: user_id,
           roles,
           cart_id,
-          fav_id
+          fav_id,
         });
 
         const refreshToken = await this.signRefreshToken({
           id: user_id,
           roles,
           cart_id,
-          fav_id
+          fav_id,
         });
 
         return {
@@ -315,7 +320,7 @@ class AuthService {
         id: payload.id,
         roles: payload.roles,
         cart_id: payload.cart_id,
-        fav_id: payload.fav_id
+        fav_id: payload.fav_id,
       };
     } catch (error) {
       logger.error(error);

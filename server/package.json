@@ -5,14 +5,14 @@
   "main": "index.js",
   "scripts": {
     "start": "cross-env NODE_ENV=production node index",
-    "dev": "cross-env NODE_ENV=development node index",
+    "dev": "cross-env NODE_ENV=development nodemon index",
     "test": "cross-env NODE_ENV=test jest --verbose --runInBand",
     "test:watch": "cross-env NODE_ENV=test jest --verbose --runInBand --watch",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
   "engines": {
-    "node": "14.x",
+    "node": "16.x",
     "npm": "6.14.7"
   },
   "jest": {
@@ -40,8 +40,10 @@
     "moment": "^2.29.1",
     "morgan": "^1.10.0",
     "nodemailer": "^6.4.17",
+    "nodemon": "^2.0.20",
     "pg": "^8.5.1",
     "pino": "^6.11.3",
+    "prisma": "^4.8.0",
     "stripe": "^8.138.0",
     "swagger-ui-express": "^4.1.6"
   },

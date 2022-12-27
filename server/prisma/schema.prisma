@@ -1,0 +1,123 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model cart {
+  id        Int         @id @default(autoincrement())
+  user_id   Int         @unique
+  users     users       @relation(fields: [user_id], references: [user_id], onDelete: SetNull, onUpdate: NoAction)
+  cart_item cart_item[]
+}
+
+model cart_item {
+  id         Int      @id @default(autoincrement())
+  cart_id    Int
+  product_id Int
+  quantity   Int
+  cart       cart     @relation(fields: [cart_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  products   products @relation(fields: [product_id], references: [product_id], onDelete: SetNull, onUpdate: NoAction)
+
+  @@unique([cart_id, product_id])
+}
+
+model fav {
+  id       Int        @id @default(autoincrement())
+  user_id  Int        @unique
+  users    users      @relation(fields: [user_id], references: [user_id], onDelete: SetNull, onUpdate: NoAction)
+  fav_item fav_item[]
+}
+
+model fav_item {
+  id         Int      @id @default(autoincrement())
+  fav_id     Int
+  product_id Int
+  quantity   Int
+  fav        fav      @relation(fields: [fav_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  products   products @relation(fields: [product_id], references: [product_id], onDelete: SetNull, onUpdate: NoAction)
+
+  @@unique([fav_id, product_id])
+}
+
+model order_item {
+  id         Int      @id @default(autoincrement())
+  order_id   Int
+  product_id Int
+  quantity   Int
+  orders     orders   @relation(fields: [order_id], references: [order_id], onDelete: Cascade, onUpdate: NoAction)
+  products   products @relation(fields: [product_id], references: [product_id], onDelete: SetNull, onUpdate: NoAction)
+}
+
+model orders {
+  order_id       Int          @id @default(autoincrement())
+  user_id        Int
+  status         String       @db.VarChar(20)
+  date           DateTime     @default(dbgenerated("CURRENT_DATE")) @db.Timestamp(6)
+  amount         Float?       @db.Real
+  total          Int?
+  ref            String?      @db.VarChar(100)
+  payment_method payment?
+  order_item     order_item[]
+  users          users        @relation(fields: [user_id], references: [user_id], onDelete: Cascade, onUpdate: NoAction)
+}
+
+model products {
+  product_id  Int          @id @default(autoincrement())
+  name        String       @db.VarChar(50)
+  price       Float        @db.Real
+  description String
+  image_url   String?      @db.VarChar
+  cart_item   cart_item[]
+  fav_item    fav_item[]
+  order_item  order_item[]
+  reviews     reviews[]
+}
+
+model resetTokens {
+  id         Int       @id @default(autoincrement())
+  email      String    @db.VarChar
+  token      String    @db.VarChar
+  used       Boolean   @default(false)
+  expiration DateTime? @db.Timestamp(6)
+}
+
+model reviews {
+  user_id    Int
+  content    String
+  rating     Int
+  product_id Int
+  date       DateTime @db.Date
+  id         Int
+  products   products @relation(fields: [product_id], references: [product_id], onDelete: SetNull, onUpdate: NoAction)
+  users      users    @relation(fields: [user_id], references: [user_id], onDelete: SetNull, onUpdate: NoAction)
+
+  @@id([user_id, product_id])
+}
+
+model users {
+  user_id    Int       @id @default(autoincrement())
+  password   String?   @db.VarChar(200)
+  email      String    @unique @db.VarChar(100)
+  fullname   String    @db.VarChar(100)
+  username   String    @unique @db.VarChar(50)
+  google_id  String?   @unique @db.VarChar(100)
+  roles      String[]  @default(["customer"]) @db.VarChar(10)
+  address    String?   @db.VarChar(200)
+  city       String?   @db.VarChar(100)
+  state      String?   @db.VarChar(100)
+  country    String?   @db.VarChar(100)
+  created_at DateTime? @default(now()) @db.Timestamp(6)
+  cart       cart?
+  fav        fav?
+  orders     orders[]
+  reviews    reviews[]
+}
+
+enum payment {
+  PAYSTACK
+  STRIPE
+}

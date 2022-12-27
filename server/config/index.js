@@ -2,12 +2,14 @@ require("dotenv").config();
 const { Pool } = require("pg");
 
 const isProduction = process.env.NODE_ENV === "production";
-const database =
-  process.env.NODE_ENV === "test"
-    ? process.env.PGDATABASE_TEST
-    : process.env.PGDATABASE;
+// const database =
+//   process.env.NODE_ENV === "test"
+//     ? process.env.PGDATABASE_TEST
+//     : process.env.PGDATABASE;
 
-const connectionString = `postgresql://${process.env.PGUSER}:${process.env.PGPASSWORD}@${process.env.PGHOST}:${process.env.PGPORT}/${database}`;
+// const connectionString = `postgresql://${process.env.PGUSER}:${process.env.PGPASSWORD}@${process.env.PGHOST}:${process.env.PGPORT}/${database}`;
+const connectionString =
+  "postgresql://postgres:FM10e3p1eea2CBmx@db.ajmnxuelceatqeqyfuzl.supabase.co:5432/postgres";
 
 const pool = new Pool({
   connectionString: isProduction
